@@ -21,7 +21,6 @@ autopublish             # Publish all data to the clients (for prototyping)
 meteorhacks:flow-layout
 meteorhacks:flow-router
 mrt:bootstrap-3
-
 accounts-password
 alanning:roles
 cfs:standard-packages
