@@ -1,0 +1,34 @@
+<template name="profile">
+<div class="col-md-6 col-md-offset-3">
+  <h2 class="head-snippet">User Profile</h2>
+  <form>
+    <label class="control-label">Avatar</label>
+    <div class="col-md-12">
+      <div class="col-md-6">
+        <span class="btn btn-success">
+        Browse...
+        <input type="file" accept=".gif,.jpg,.png" class="myFileInput" id="avatar" />
+      </span>
+      </div>
+      <div class="col-md-6">
+        <img src="{{currentUser.profile.avatar}}" alt="Avatar" width="40" class="img-circle avatar-upload" />
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="firstname" class="control-label">Firstname</label>
+      <input type="text" class="form-control" id="firstname" value="{{currentUser.profile.firstname}}">
+    </div>
+    <div class="form-group">
+      <label for="lastname" class="control-label">Lastname</label>
+      <input type="text" class="form-control" id="lastname" value="{{currentUser.profile.lastname}}">
+    </div>
+    <div class="form-group">
+      <label for="email" class="control-label">Email</label>
+      <input type="email" class="form-control" id="email" value="{{currentUser.profile.email}}">
+    </div>
+    <div class="form-group">
+      <button type="subit" class="btn btn-primary">Save</button>
+    </div>
+  </form>
+</div>
+</template>
