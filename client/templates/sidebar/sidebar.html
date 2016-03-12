@@ -1,7 +1,7 @@
 <template name="sidebar">
 <ul class="list-unstyled side-nav">
-  <li class="cursive huge"><a href="/category/example">Example Cat</a></li>
-  <li class="cursive huge"><a href="/category/example2">2 Cat</a></li>
-  <li class="cursive huge"><a href="/category/example123">12313123</a></li>
+  {{#each categories}}
+    <li class="cursive huge"><a href="/category/{{name}}">{{name}}</a></li>
+  {{/each}}
 </ul>
 </template>

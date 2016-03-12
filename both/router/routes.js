@@ -1,4 +1,7 @@
 FlowRouter.route(['/','home'],{
+  subscriptions:function(){
+    Meteor.subscribe("category");
+  },
   action:function(){
     FlowLayout.render('layout',{sidebar:'sidebar', main:'home', cart:'cart'});
   }
@@ -26,9 +29,18 @@ FlowRouter.route('/profile',{
 });
 //Admin
 FlowRouter.route('/admin',{
+  subscriptions:function(){
+    Meteor.subscribe("category");
+  },
   action:function(){
-    FlowLayout.render('layout',{sidebar:'', main:'admin', cart:''});
+  if(Roles.userIsInRole(Meteor.userId(),'admin')){
+      FlowLayout.render('layout',{sidebar:'', main:'admin', cart:''});
+    }
+  else{
+      FlowLayout.render('layout',{sidebar:'', main:'unauthorized', cart:''});
+    }
   }
+
 });
 
 //Signout
@@ -56,7 +68,7 @@ FlowRouter.route('/checkout',{
 
 FlowRouter.route('/category/:categoryName',{
   subscriptions:function(params){
-    console.log("SUBSCRIBEEE", params);
+    Meteor.subscribe("category");
     //make sure subs do exist
   },
   triggersEnter:function(params){

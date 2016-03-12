@@ -1,4 +1,5 @@
-Template.admin.helpers({
+
+Template.sidebar.helpers({
   categories: function(){
      return Category.find({});
   }
