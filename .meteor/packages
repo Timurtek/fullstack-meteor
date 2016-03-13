@@ -23,3 +23,6 @@ accounts-password
 alanning:roles
 cfs:standard-packages
 cfs:gridfs
+matb33:collection-hooks
+dburles:collection-helpers
+fortawesome:fontawesome

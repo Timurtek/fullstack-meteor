@@ -1,3 +1,3 @@
 Meteor.publish("cart", function(){
-  return Cart.find({});
+  return Cart.find();
 });

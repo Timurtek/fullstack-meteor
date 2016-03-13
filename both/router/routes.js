@@ -1,6 +1,7 @@
 FlowRouter.route(['/','home'],{
   subscriptions:function(){
-    Meteor.subscribe("category");
+    this.register("categoriesList", Meteor.subscribe("category"));
+    this.register("productsList", Meteor.subscribe("products"));
   },
   action:function(){
     FlowLayout.render('layout',{sidebar:'sidebar', main:'home', cart:'cart'});
@@ -30,7 +31,8 @@ FlowRouter.route('/profile',{
 //Admin
 FlowRouter.route('/admin',{
   subscriptions:function(){
-    Meteor.subscribe("category");
+    this.register("categoriesList", Meteor.subscribe("category"));
+    this.register("productsList", Meteor.subscribe("products"));
   },
   action:function(){
   if(Roles.userIsInRole(Meteor.userId(),'admin')){
@@ -68,7 +70,8 @@ FlowRouter.route('/checkout',{
 
 FlowRouter.route('/category/:categoryName',{
   subscriptions:function(params){
-    Meteor.subscribe("category");
+    this.register("catlist", Meteor.subscribe("category"));
+    this.register("catproducts", Meteor.subscribe("categoryProducts",params.categoryName));
     //make sure subs do exist
   },
   triggersEnter:function(params){

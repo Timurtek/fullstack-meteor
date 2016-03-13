@@ -4,6 +4,5 @@ Meteor.methods({
     if(!exists){
       return Category.insert(category);
     }
-
   }
 });
