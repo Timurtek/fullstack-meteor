@@ -70,9 +70,13 @@ FlowRouter.route('/checkout',{
 
 FlowRouter.route('/category/:categoryName',{
   subscriptions:function(params){
+
     this.register("catlist", Meteor.subscribe("category"));
+
     this.register("catproducts", Meteor.subscribe("categoryProducts",params.categoryName));
-    //make sure subs do exist
+
+    this.register("usercart", Meteor.subscribe("usercart",Meteor.userId() ));
+
   },
   triggersEnter:function(params){
     console.log("TRIGGERS ENTER",params);

@@ -1,24 +1,24 @@
 <template name="cart">
   {{#if currentUser}}
   <h4>Cart</h4>
-  <ul class="list-unstyled">
+  <ul class="list-unstyled col-lg-8">
     {{#each cartitems}}
     <li>
       <span class="item">
       <span class="item-left">
-        <img src="{{img}}" alt="Image" />
+        <img src="{{image}}" alt="Image" />
         <span class="item-info">
           <span>
-            <label class="badge">{{qty}}</label>
+            <label class="badge">{{cartproduct.qty}}</label>
           </span>
-      <span>{{truncate product 6}}</span>
+      <span>{{truncate cartproduct.name 6}}</span>
       <br/>
-      <span>{{{description}}}</span>
+      <span>{{{cartproduct.description}}}</span>
       </span>
       </span>
       <span class="item-right">
         <h4>
-          {{currency price}}
+          {{currency cartproduct.price}}
           <button class="btn btn-xs btn-danger pull-right delFromCart">x</button>
         </h4>
       </span>
@@ -29,4 +29,9 @@
   {{else}}
     <span>Please log in</span>
   {{/if}}
+  <div class="col-md-12">
+    <span>
+      <button class="btn btn-md checkOutButton" data-toggle="modal" data-target="#checkOutModal">Check Out</button>
+    </span>
+  </div>
 </template>

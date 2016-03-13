@@ -1,5 +1,5 @@
 <template name="panel">
-  <div class="modal fade" tabindex="-1" role="dialog">
+  <div class="modal fade" tabindex="-1" role="dialog" id="{{this.modalName}}" aria-labelledby="{{this.modalName}}">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
@@ -11,6 +11,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-default btn-primary {{this.btnAction}}" data-dismiss="modal">{{this.primaryButton}}</button>
         </div>
       </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
